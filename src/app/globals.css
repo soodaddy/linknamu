@@ -1,124 +1,108 @@
 @import "tailwindcss";
 
-/* Mac OS X (Aqua) 스타일 */
+/* 1995년 System 7.5 스타일: 흑백, 픽셀 글꼴, 1px 검정 테두리 */
+@font-face {
+  font-family: Galmuri14;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../node_modules/galmuri/dist/Galmuri14.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Galmuri11;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../node_modules/galmuri/dist/Galmuri11.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Galmuri11;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../node_modules/galmuri/dist/Galmuri11-Bold.woff2")
+    format("woff2");
+}
+
 :root {
   --foreground: #000000;
-  --muted: #333333;
 }
 
 @theme inline {
   --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --font-sans: "Lucida Grande", "Apple SD Gothic Neo", "Malgun Gothic",
+  --font-sans: Galmuri14, Geneva, "Apple SD Gothic Neo", "Malgun Gothic",
     "Noto Sans KR", sans-serif;
+  --font-display: Galmuri11, Geneva, "Apple SD Gothic Neo", sans-serif;
 }
 
 html {
   color-scheme: light;
 }
 
-/* 데스크톱 배경: Aqua 블루 그라데이션 */
+/* 데스크톱 배경: 2px 회색 디더링 패턴 */
 body {
-  background-color: #2f6db5;
-  background-image: radial-gradient(
-    ellipse 120% 90% at 50% 0%,
-    #9cc9f2 0%,
-    #4a89d0 45%,
-    #1d4f93 100%
+  background-color: #777777;
+  background-image: conic-gradient(
+    #777777 25%,
+    #aaaaaa 0 50%,
+    #777777 0 75%,
+    #aaaaaa 0
   );
-  background-attachment: fixed;
+  background-size: 4px 4px;
   color: var(--foreground);
   font-family: var(--font-sans);
 }
 
 @layer components {
-  /* 창: 핀스트라이프 바탕 + 둥근 모서리 */
+  /* 창: 흰 바탕, 1px 검정 테두리, 오른쪽 아래 딱딱한 그림자 */
   .mac-window {
-    overflow: hidden;
-    border: 1px solid rgb(0 0 0 / 0.5);
-    border-radius: 8px;
-    background: repeating-linear-gradient(
-      to bottom,
-      #f1f1f1 0 2px,
-      #e4e4e4 2px 4px
-    );
-    box-shadow:
-      0 14px 36px rgb(0 0 0 / 0.5),
-      0 2px 6px rgb(0 0 0 / 0.3),
-      inset 0 1px 0 rgb(255 255 255 / 0.7);
+    border: 1px solid #000;
+    background: #fff;
+    box-shadow: 2px 2px 0 #000;
   }
 
   .mac-titlebar {
-    height: 26px;
-    border-bottom: 1px solid #7d7d7d;
-    background: linear-gradient(
-      to bottom,
-      #f6f6f6,
-      #dcdcdc 49%,
-      #cfcfcf 50%,
-      #bcbcbc
-    );
-    box-shadow: inset 0 1px 0 #fff;
+    height: 22px;
+    border-bottom: 1px solid #000;
+    background: #fff;
   }
 
-  /* 신호등 버튼: --c 로 색을 정한다 */
-  .mac-light {
+  /* 제목 표시줄의 가로 줄무늬 */
+  .mac-stripes {
+    background: repeating-linear-gradient(
+      to bottom,
+      #000 0 1px,
+      #fff 1px 2px
+    );
+  }
+
+  /* 닫기/확대 박스 */
+  .mac-box {
     width: 13px;
     height: 13px;
-    border-radius: 50%;
-    background:
-      radial-gradient(
-        ellipse 70% 45% at 50% 25%,
-        rgb(255 255 255 / 0.95),
-        rgb(255 255 255 / 0)
-      ),
-      var(--c);
-    box-shadow:
-      inset 0 -2px 3px rgb(0 0 0 / 0.3),
-      0 0 0 1px rgb(0 0 0 / 0.35),
-      0 1px 0 rgb(255 255 255 / 0.8);
+    border: 1px solid #000;
+    background: #fff;
   }
 
   .mac-photo {
-    border: 1px solid rgb(0 0 0 / 0.4);
-    border-radius: 1.25rem;
+    border: 1px solid #000;
     background: #fff;
-    box-shadow:
-      0 3px 8px rgb(0 0 0 / 0.35),
-      inset 0 1px 0 #fff;
   }
 
-  /* Aqua 젤 버튼 */
+  /* 흑백 둥근 버튼: 누르면 색이 반전된다 */
   .mac-button {
-    border: 1px solid #3a6ea8;
-    border-radius: 999px;
-    background: linear-gradient(
-      to bottom,
-      #d3eafc 0%,
-      #92c8f3 49%,
-      #5aa6e8 50%,
-      #94d3fb 100%
-    );
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.95),
-      0 1px 3px rgb(0 0 0 / 0.4);
+    border: 1px solid #000;
+    border-radius: 8px;
+    background: #fff;
     cursor: pointer;
-    transition: filter 0.15s;
-  }
-
-  .mac-button:hover {
-    filter: brightness(1.06);
   }
 
   .mac-button:active {
-    filter: brightness(0.88);
-    box-shadow:
-      inset 0 2px 4px rgb(0 0 0 / 0.35),
-      0 1px 0 rgb(255 255 255 / 0.6);
+    background: #000;
+    color: #fff;
   }
 
   .mac-button:focus-visible {
-    outline: 3px solid rgb(90 160 255 / 0.65);
+    outline: 2px solid #000;
     outline-offset: 2px;
   }
 }

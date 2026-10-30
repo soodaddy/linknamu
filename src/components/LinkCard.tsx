@@ -11,10 +11,10 @@ export default function LinkCard({ link, count }: Props) {
   return (
     <a
       href={`/go/${link.id}`}
-      className="mac-button relative flex items-center justify-center px-16 py-3.5 text-center text-base font-bold [text-shadow:0_1px_0_rgb(255_255_255/0.6)]"
+      className="mac-button relative flex items-center justify-center px-16 py-3 text-center text-base leading-snug"
     >
       <span>{link.title}</span>
-      <span className="absolute top-1/2 right-5 -translate-y-1/2 text-xs font-normal text-muted">
+      <span className="font-display absolute top-1/2 right-4 -translate-y-1/2 text-[11px]">
         {count.toLocaleString("ko-KR")}회
       </span>
     </a>

@@ -21,10 +21,8 @@ export default function ProfileHeader({ name, bio, image }: Profile) {
           {name.charAt(0)}
         </div>
       )}
-      <h1 className="text-2xl font-bold [text-shadow:0_1px_0_#fff]">
-        {name}
-      </h1>
-      <p className="text-base text-muted">{bio}</p>
+      <h1 className="font-display text-base leading-tight font-bold">{name}</h1>
+      <p className="text-base leading-snug">{bio}</p>
     </header>
   );
 }

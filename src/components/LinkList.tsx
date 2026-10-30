@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import { links } from "@/data/profile";
 import { getClickCounts } from "@/lib/clicks";
 import LinkCard from "./LinkCard";
@@ -20,6 +21,8 @@ export function LinkListFallback() {
 }
 
 export default async function LinkList() {
+  // DB 조회는 미리 만들어 두지 않고 요청이 들어온 뒤에 실행한다.
+  await connection();
   const counts = await getClickCounts();
   return <Cards counts={counts} />;
 }

@@ -15,7 +15,7 @@ export type LinkItem = {
 export const profile: Profile = {
   name: "박재신",
   bio: "AI에 관심많은 개발자",
-  image: "/profile-dummy.svg",
+  image: "/profile-happy-mac.svg",
 };
 
 export const links: LinkItem[] = [
