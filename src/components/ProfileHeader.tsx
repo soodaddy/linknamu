@@ -3,7 +3,7 @@ import type { Profile } from "@/data/profile";
 
 export default function ProfileHeader({ name, bio, image }: Profile) {
   return (
-    <header className="flex flex-col items-center gap-3 text-center">
+    <header className="flex flex-col items-center gap-2 text-center">
       {image ? (
         <Image
           src={image}
@@ -11,18 +11,20 @@ export default function ProfileHeader({ name, bio, image }: Profile) {
           width={160}
           height={160}
           priority
-          className="size-40 rounded-full object-cover"
+          className="mac-photo mb-3 size-40 object-cover"
         />
       ) : (
         <div
           aria-hidden
-          className="flex size-40 items-center justify-center rounded-full bg-emerald-600 text-6xl font-bold text-white"
+          className="mac-photo mb-3 flex size-40 items-center justify-center text-6xl font-bold"
         >
           {name.charAt(0)}
         </div>
       )}
-      <h1 className="text-2xl font-bold">{name}</h1>
-      <p className="text-neutral-600 dark:text-neutral-400">{bio}</p>
+      <h1 className="text-2xl font-bold [text-shadow:0_1px_0_#fff]">
+        {name}
+      </h1>
+      <p className="text-base text-muted">{bio}</p>
     </header>
   );
 }

@@ -11,11 +11,11 @@ export default function LinkCard({ link, count }: Props) {
   return (
     <a
       href={`/go/${link.id}`}
-      className="flex items-center justify-between rounded-2xl border border-neutral-300 px-5 py-4 font-medium transition hover:-translate-y-0.5 hover:border-emerald-600 hover:shadow-md active:translate-y-0 dark:border-neutral-700"
+      className="mac-button flex flex-col items-center justify-center gap-0.5 px-6 py-3 text-center text-base font-bold [text-shadow:0_1px_0_rgb(255_255_255/0.6)]"
     >
       <span>{link.title}</span>
       {count !== undefined && (
-        <span className="text-sm font-normal text-neutral-500">
+        <span className="text-xs font-normal text-muted">
           {count.toLocaleString("ko-KR")}회 클릭
         </span>
       )}
