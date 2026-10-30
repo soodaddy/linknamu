@@ -14,7 +14,7 @@ export default function LinkCard({ link, count }: Props) {
       className="mac-button relative flex items-center justify-center px-16 py-3 text-center text-base leading-snug"
     >
       <span>{link.title}</span>
-      <span className="font-display absolute top-1/2 right-4 -translate-y-1/2 text-[11px]">
+      <span className="absolute top-1/2 right-4 -translate-y-1/2 text-base">
         {count.toLocaleString("ko-KR")}회
       </span>
     </a>
