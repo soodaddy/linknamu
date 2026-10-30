@@ -19,7 +19,7 @@ export const profile: Profile = {
 };
 
 export const links: LinkItem[] = [
-  { id: "github", title: "😈 깃허브", url: "https://github.com/sodaddy" },
+  { id: "github", title: "😈 깃허브", url: "https://github.com/soodaddy" },
   {
     id: "linkedin",
     title: "🌎 링크드인",
